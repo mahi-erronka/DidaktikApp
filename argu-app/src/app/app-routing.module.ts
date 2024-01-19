@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'ordenatu-argazkiak',
+    loadChildren: () => import('./ordenatu-argazkiak/ordenatu-argazkiak.module').then( m => m.OrdenatuArgazkiakPageModule)
   },
+
 ];
 
 @NgModule({
