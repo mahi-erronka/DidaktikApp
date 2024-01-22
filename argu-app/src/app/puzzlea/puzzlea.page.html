@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>puzzlea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">puzzlea</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid>
+      <ion-row *ngFor="let row of puzzle">
+        <ion-col *ngFor="let piece of row" >
+          <div class="piece" [ngClass]="{'empty': piece.id === 0}">
+            <img *ngIf="piece.id !== 0" [src]="piece.url" alt="Piece {{ piece.id }}" (click)="movePiece(piece)">
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+</ion-content>

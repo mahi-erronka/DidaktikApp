@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'ordenatu-argazkiak',
     loadChildren: () => import('./ordenatu-argazkiak/ordenatu-argazkiak.module').then( m => m.OrdenatuArgazkiakPageModule)
   },
+  {
+    path: 'puzzlea',
+    loadChildren: () => import('./puzzlea/puzzlea.module').then( m => m.PuzzleaPageModule)
+  },
 
 ];
 
