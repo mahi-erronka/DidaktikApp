@@ -1,0 +1,167 @@
+
+
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center">
+    <div class="panel" [ngStyle]="{'visibility': panel_visible}"></div>
+    
+    <!--MAPA-->
+    <div class="map-container" [ngStyle]="{'visibility': mapa_visible}">
+      <img src="assets/img/mapa_argu.png">
+      <p class="map-text">ARRIAGA ANTZOKIA</p>
+      <ion-fab-button class="map-button" (click)="hurrengoJokoa('/sentimenduak')"><ion-icon name="flag"></ion-icon></ion-fab-button>
+    </div>
+
+
+    <div>
+      <h1 class="izenburua">HUTSUNEAK BETE</h1>
+    </div> 
+    <div class="kantua ion-text-center">
+      <div class="b">
+        <p>Aste nagusia</p>
+        <p>bakarra dago</p>
+        <div class="erantzuna">
+          <p>hamar </p>
+          <ion-input [ngStyle]="{'--background': sartutakoak[0].color}" [(ngModel)]="sartutakoak[0].value" [disabled]="sartutakoak[0].disabled"></ion-input>
+        </div>
+        <p>munduan.</p>
+      </div>
+
+      <div class="b">
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[1].color}" [(ngModel)]="sartutakoak[1].value" [disabled]="sartutakoak[1].disabled"></ion-input>
+          <p>Bilbon.</p>
+        </div>
+        <p>denok batera</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[2].color}" [(ngModel)]="sartutakoak[2].value" [disabled]="sartutakoak[2].disabled"></ion-input>
+          <p>eurak be</p>
+        </div>
+        <p>jaietan</p>
+        <p>Mari,Mari,</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[3].color}" [(ngModel)]="sartutakoak[3].value" [disabled]="sartutakoak[3].disabled"></ion-input>
+          <p>dator</p>
+        </div>
+        <p>Mari,Mari,</p>
+        <p>Marijaia dator</p>
+      </div>
+
+      <div class="b">
+        <p>Uger, uger,</p>
+        <p>Bilboko uretan</p>
+        <p>Mari,Mari,</p>
+        <p>Marijaia dator</p>
+      </div>
+
+      <div class="b">
+        <p>Abuztuan danok</p>
+        <div class="erantzuna">
+          <p>zahar eta </p>
+          <ion-input [ngStyle]="{'--background': sartutakoak[4].color}" [(ngModel)]="sartutakoak[4].value" [disabled]="sartutakoak[4].disabled"></ion-input>
+        </div>
+        <div class="erantzuna">
+          <p>gizon eta</p>
+          <ion-input [ngStyle]="{'--background': sartutakoak[5].color}" [(ngModel)]="sartutakoak[5].value" [disabled]="sartutakoak[5].disabled"></ion-input>
+        </div>
+        <p>jaietan.</p>
+      </div>
+
+      <div class="b">
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[6].color}" [(ngModel)]="sartutakoak[6].value" [disabled]="sartutakoak[6].disabled"></ion-input>
+          <p> lepoan</p>
+        </div>
+        <p>elkar hartuta</p>
+        <p>kolore guztiak</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[7].color}" [(ngModel)]="sartutakoak[7].value" [disabled]="sartutakoak[7].disabled"></ion-input>
+        </div>
+      </div>
+
+      <div class="b">
+        <div class="erantzuna">
+          <p>Goxa eta</p>
+          <ion-input [ngStyle]="{'--background': sartutakoak[8].color}" [(ngModel)]="sartutakoak[8].value" [disabled]="sartutakoak[8].disabled"></ion-input>
+        </div>
+        <p>ez ei doaz batera</p>
+        <p>bata edo bestea</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[9].color}" [(ngModel)]="sartutakoak[9].value" [disabled]="sartutakoak[9].disabled"></ion-input>
+          <p> egin da. (BIS)</p>
+        </div>
+      </div>
+
+      <div class="b">
+        <p>Hara,hara,hara,</p>
+        <p>hara nor datorren</p>
+        <p>Hara,hara,hara,</p>
+        <p>gure marijaia.</p>
+      </div>
+
+      <div class="b">
+        <p>Ene,ene,ene,</p>
+        <p>oi ai ene bada</p>
+        <p>aste hau pasata</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[10].color}" [(ngModel)]="sartutakoak[10].value" [disabled]="sartutakoak[10].disabled"></ion-input>
+          <p>joango da.</p>
+        </div>
+      </div>
+
+      <div class="b">
+        <p>Marijaia bera</p>
+        <p>gure marijaia</p>
+        <p>Bilbora etorri da</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[11].color}" [(ngModel)]="sartutakoak[11].value" [disabled]="sartutakoak[11].disabled"></ion-input>
+        </div>
+      </div>
+
+      <div class="b">
+        <p>Hara,hara,hara,</p>
+        <p>hara nor datorren</p>
+        <p>Hara,hara,hara,</p>
+        <div class="erantzuna">
+          <p>gure</p>
+          <ion-input [ngStyle]="{'--background': sartutakoak[12].color}" [(ngModel)]="sartutakoak[12].value" [disabled]="sartutakoak[12].disabled"></ion-input>
+          
+        </div>
+      </div>
+
+      <div class="b">
+        <p>Ene,ene,ene,</p>
+        <p>oi ai ene bada</p>
+        <p>aste hau pasata</p>
+        <p>berriro joango da</p>
+      </div>
+
+      <div class="b">
+        <p>Marijaia bera</p>
+        <p>gure marijaia</p>
+        <p>Bilbora etorri da</p>
+        <div class="erantzuna">
+         <ion-input [ngStyle]="{'--background': sartutakoak[13].color}" [(ngModel)]="sartutakoak[13].value" [disabled]="sartutakoak[13].disabled"></ion-input>
+        </div>
+      </div>
+
+      <div class="b">
+        <p>Aste Nagusia</p>
+        <p>bakarra munduan</p>
+        <p>bakarra munduan</p>
+        <div class="erantzuna">
+          <ion-input [ngStyle]="{'--background': sartutakoak[14].color}" [(ngModel)]="sartutakoak[14].value" [disabled]="sartutakoak[14].disabled"></ion-input>
+          <p>(BIS)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="botoiak">
+      <ion-fab-button (click)="audioJarraitu()"><ion-icon name="play"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="audioGelditu()"><ion-icon name="pause"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="erantzunakKonprobatu()" [disabled]="checkBotoia"><ion-icon name="checkmark-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="mapaErakutsi()" [disabled]="mapa_botoia"><ion-icon name="map"></ion-icon></ion-fab-button>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,3 +1,7 @@
+ion-content{
+  background-image: url("assets/img/bilbo_sarrera.png");
+}
+
 #container {
   text-align: center;
 
@@ -24,4 +28,21 @@
 
 #container a {
   text-decoration: none;
+}
+
+.botoia{
+  margin-top: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  width: 125px;
+
+  border: 2px solid black;
+  border-radius: 0.5em;
+
+  --background: #d8e246;
+  color: black;
+}
+
+.botoia:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
