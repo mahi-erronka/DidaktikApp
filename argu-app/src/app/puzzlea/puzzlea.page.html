@@ -11,15 +11,23 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-grid>
-      <ion-row *ngFor="let row of puzzle">
-        <ion-col *ngFor="let piece of row" >
-          <div class="piece" [ngClass]="{'empty': piece.id === 0}">
-            <img *ngIf="piece.id !== 0" [src]="piece.url" alt="Piece {{ piece.id }}" (click)="movePiece(piece)">
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    
+    <div class="main">
+      <div class="piece-container" (touchmove)="startDrag($event)">
+        <img class="piece" *ngFor="let piece of pieces; let i = index"
+          [src]="piece.src"
+          [style.left.px]="piece.x"
+          [style.top.px]="piece.y"
+          [style.width.px]="piece.width"
+          [style.height.px]="piece.height"
+          [style.z-index]="piece.zIndex"
+          (touchstart)="selectPiece(i)">
+      </div>
+    
+      <div class="puzzle-container" [class.completed]="completed">
+      </div>
+    </div>
+    
   </ion-content>
 
 </ion-content>
