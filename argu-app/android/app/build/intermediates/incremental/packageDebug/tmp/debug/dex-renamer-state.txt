@@ -1,4 +1,4 @@
-#Wed Jan 31 13:07:42 CET 2024
+#Fri Feb 02 10:56:03 CET 2024
 base.0=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

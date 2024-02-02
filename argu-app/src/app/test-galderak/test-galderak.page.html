@@ -1,10 +1,12 @@
 <ion-header>
 </ion-header>
-<div>
-  <p>Puntos: {{ puntos }}</p>
-  <p>Tiempo restante: {{ tiempoRestante }} segundos</p>
-</div>
+
 <ion-content class="ion-padding">
+
+  <div>
+    <p>Puntos: {{ puntos }}</p>
+    <p>Tiempo restante: {{ tiempoRestante }} segundos</p>
+  </div>
   <div *ngIf="juegoIniciado && !juegoTerminado">
     <h2>{{ preguntaActual.pregunta }}</h2>
     <ion-button *ngFor="let respuesta of preguntaActual.respuestas" (click)="verificarRespuesta(respuesta)"
@@ -33,5 +35,16 @@
       <p>{{ pregunta.pregunta }} - Respuesta Correcta: {{ pregunta.respuestaCorrecta }}</p>
     </div>
   </div>
+
+   <!-- Botón para reiniciar el segundo audio -->
+
+
+<!-- Div para el diálogo del personaje -->
+<div class="dialogo">
+  <div class="nombre-personaje">Argu</div>
+  
+  <div [innerHTML]="dialogo"></div>
+</div>
+  <ion-img src="assets/img/Argu.png" class="esquina-img"></ion-img>
 </ion-content>
 

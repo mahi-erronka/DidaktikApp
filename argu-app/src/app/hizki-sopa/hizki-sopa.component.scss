@@ -34,6 +34,12 @@ text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff,
   
 }
 
+::ng-deep li{
+  font-size: 82%;
+
+
+}
+
 #titulua {
   position: absolute;
   left: 35%;
@@ -106,6 +112,24 @@ text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff,
   top: 62%; /* Ajusta la posición vertical de la sopa de letras */
   left: 71%;
 }
+
+.botoiak {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #CCFFFF; /* Puedes ajustar el color de fondo según tus preferencias */
+}
+
+ion-fab-button {
+  margin: 0 5px; /* Ajusta el margen entre los botones según sea necesario */
+}
+  
 @media only screen and (max-width: 768px) {
   #sopaDeLetras {
     width: 88%; /* Ajusta el tamaño para pantallas más pequeñas */
@@ -116,6 +140,8 @@ text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff,
     left: 30%; /* Ajusta la posición del título para pantallas más pequeñas */
     font-size: 30px; /* Ajusta el tamaño del título para pantallas más pequeñas */
   }
+
+
 
  
    

@@ -65,11 +65,7 @@ export class IntroPage implements OnInit {
     this.reproduciendoAudio = true; // Bloquear los botones cuando se inicie la reproducción del audio
     audio.play();
   }
-  cerrarDialogo() {
-    // Lógica para cerrar el diálogo, por ejemplo, restablecer el contenido del diálogo y detener la reproducción de audio si es necesario
-    this.dialogo = '';
-    // Puedes agregar más lógica según tus necesidades
-  }
+ 
 
   reiniciarAudio2() {
     

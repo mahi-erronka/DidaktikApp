@@ -9,6 +9,7 @@ export class TestGalderakPage {
   juegoTerminado: boolean = false;
   juegoIniciado: boolean = false;
   mostrarRespuestas: boolean = false;
+  dialogo: string = '';
   preguntas: any[] = [
     {
       pregunta: 'Noiz izan zen Bilboko uholderik larriena?',
@@ -44,7 +45,7 @@ export class TestGalderakPage {
   
   interval: any;
   
-  constructor() {}
+  constructor() {this.iniciarDialogo();}
 
   iniciarJuego() {
     this.juegoTerminado = false;
@@ -132,5 +133,29 @@ export class TestGalderakPage {
   mostrarRespuestasCorrectas() {
     this.mostrarRespuestas = true;
   }
+
+  iniciarDialogo() {
+    let textoCompleto =
+      "Kaixo Umeak! Zelan? \n\n Nire izena Argu da eta oso arrain nagusia naiz. Ni zuen bidaiaren " +
+      "gidaria izango naiz. \n\n Ni 1983an jaio nintzen. Ba ahal daki inork zer gertatu zen 1983an?\n\n" +
+      "Ondo da! Egingo dugun bidai magiko honetan, 1983an gertatutako uhoaldeari buruz hitz " +
+      "egingo dugu eta horretarako gure hiriko zazpi kaleetatik ibiliko gara. Ibilbide honetan zehar " +
+      "zazpi ondare garrantzitsu ikusiko ditugu, bertan ikusteko uholdeak izan zuen garrantzia eta " +
+      "izandako kalteak.\n\n Eta zeintzuk dira zazpi ondare horiek?\n\n Sopa letra honetan ondareekin erlazio" +
+      "estua duten hitzak aurkituko dituzue.\n\n Bilatu eta animo!";
+
+    // Reemplazamos los saltos de línea por etiquetas <br>
+    textoCompleto = textoCompleto.replace(/\n/g, '<br>');
+
+    let index = 0;
+    const interval = setInterval(() => {
+     
+      index++;
+      if (index === textoCompleto.length) {
+        clearInterval(interval);
+      }
+    }, 85);
+  }
+  
 }
 
