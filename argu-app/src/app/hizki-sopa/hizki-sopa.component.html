@@ -1,0 +1,20 @@
+<h2 id="titulua">HIZKI SOPA</h2>
+
+<table id="sopaDeLetras">
+  <tbody>
+    <!-- Filas y celdas se generan dinámicamente en el componente TypeScript -->
+  </tbody>
+</table>
+
+<div id="palabrasEncontradas">
+  <ul>
+    <li *ngFor="let palabra of getPalabrasEncontradas()">
+      {{ palabra }}
+    </li>
+  </ul>
+</div>
+
+<div id="contenedorBotonTexto">
+  <ion-button class="miBoton" (click)="iluminarPrimeraLetraNoSeleccionada();showHelpText()">Laguntza</ion-button>
+  <p id="helpText"></p>
+</div>

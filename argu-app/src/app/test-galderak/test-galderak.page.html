@@ -1,0 +1,37 @@
+<ion-header>
+</ion-header>
+<div>
+  <p>Puntos: {{ puntos }}</p>
+  <p>Tiempo restante: {{ tiempoRestante }} segundos</p>
+</div>
+<ion-content class="ion-padding">
+  <div *ngIf="juegoIniciado && !juegoTerminado">
+    <h2>{{ preguntaActual.pregunta }}</h2>
+    <ion-button *ngFor="let respuesta of preguntaActual.respuestas" (click)="verificarRespuesta(respuesta)"
+      [color]="respuestaColor(respuesta)">
+      {{ respuesta }}
+    </ion-button>
+  </div>
+  <div *ngIf="juegoTerminado">
+    <h2>¡Juego Terminado!</h2>
+    <ion-button (click)="repetirIntento()">Repetir Intento</ion-button>
+  </div>
+  <div *ngIf="!juegoIniciado && !juegoTerminado">
+    <ion-button (click)="iniciarJuego()">Iniciar Juego</ion-button>
+  </div>
+</ion-content>
+<ion-content class="ion-padding">
+  <!-- ... (código existente) -->
+
+  <!-- Agrega un botón para mostrar respuestas correctas -->
+  <ion-button (click)="mostrarRespuestasCorrectas()" *ngIf="juegoTerminado">Mostrar Respuestas Correctas</ion-button>
+
+  <!-- Muestra las respuestas correctas si el botón ha sido presionado -->
+  <div *ngIf="mostrarRespuestas">
+    <h2>Respuestas Correctas</h2>
+    <div *ngFor="let pregunta of preguntas">
+      <p>{{ pregunta.pregunta }} - Respuesta Correcta: {{ pregunta.respuestaCorrecta }}</p>
+    </div>
+  </div>
+</ion-content>
+
