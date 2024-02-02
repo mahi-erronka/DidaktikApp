@@ -1,0 +1,42 @@
+ion-content {
+    --background: url('/assets/img/Bilbo-sarrera.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .nombre-personaje {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #63ec63;
+    box-sizing: border-box;
+    margin: -10px;
+    margin-bottom: 10px;
+    width: 70px;
+
+  }
+  
+  .esquina-img {
+    position: fixed;
+    bottom: 40px;
+    right: 1%;
+    width: 150px;
+    height: auto;
+    animation: shake 0.5s infinite alternate;
+    
+  }
+  
+  .dialogo {
+    background-color: rgba(51, 221, 233, 0.7);
+    border: 6px solid #63ec63;
+    position: fixed;
+    bottom: 150px;
+    padding: 10px;
+    left: 25%;
+    width: 60%;
+    height: auto;
+    box-sizing: border-box;
+    font-size: 17px;
+  }
+  
+
+

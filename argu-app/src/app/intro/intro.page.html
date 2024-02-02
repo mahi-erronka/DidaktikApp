@@ -1,0 +1,29 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row class="ion-align-items-center ion-justify-content-center">
+    <ion-col size="12" class="ion-text-center">
+      <!-- Pregunta en medio superior -->
+      <h2>Inork ba al daki 1983an Bilbon gertatu zena?</h2>
+    </ion-col>
+
+    <ion-col size="12" class="ion-text-center ion-margin-top">
+      <!-- Botones en vertical -->
+      <ion-button [routerLink]="['/hizki-sopa']"expand="full" (click)="respuesta('Bai')" [disabled]="reproduciendoAudio">Bai</ion-button>
+      <ion-button [routerLink]="['/hizki-sopa']"expand="full" (click)="respuesta('Ez')" [disabled]="reproduciendoAudio">Ez</ion-button>
+    </ion-col>
+  </ion-row>
+
+
+  <!-- Botón para reiniciar el segundo audio -->
+<ion-button expand="full" (click)="reiniciarAudio2()"[disabled]="reproduciendoAudio">Reiniciar Audio 2</ion-button>
+
+<!-- Div para el diálogo del personaje -->
+<div class="dialogo">
+  <div class="nombre-personaje">Argu</div>
+  
+  <div [innerHTML]="dialogo"></div>
+</div>
+  <ion-img src="assets/img/Argu.png" class="esquina-img"></ion-img>
+</ion-content>

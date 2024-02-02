@@ -4,27 +4,31 @@ ion-content{
 
 
 .gidoia{
-    padding: 1em;
-    border-radius: 1em;
-    background-color: #d8e246;
-    margin-top: 2em;
-    margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    padding: 4px;
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
 
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 1em;
+
+    background-color: #d8e246;
 }
 
 .sentimendua{
     border-radius: 1em;
-    padding: 1em;
+    padding: 0.5em;
     background-color: rgb(243, 243, 243);
     margin-top: 1em;
-    
+    margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 90%;
 
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
@@ -85,3 +89,32 @@ ion-content{
     transform: translate(-50%, -50%);
     color: #ff0000;
 }
+
+.nombre-personaje {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #63ec63;
+    box-sizing: border-box;
+    margin: -10px;
+    margin-bottom: 10px;
+    width: 70px;
+
+  }
+  
+  .esquina-img {
+    width: 15%;
+    height: auto;
+    animation: shake 0.5s infinite alternate;
+    
+  }
+  
+  .dialogo {
+    background-color: rgba(51, 221, 233, 0.7);
+    border: 6px solid #63ec63;
+    padding: 10px;
+    width: 60%;
+    height: auto;
+    box-sizing: border-box;
+    font-size: 17px;
+  }

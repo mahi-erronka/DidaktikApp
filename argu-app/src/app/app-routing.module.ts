@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -22,7 +23,28 @@ const routes: Routes = [
   {
     path: 'sentimenduak',
     loadChildren: () => import('./sentimenduak/sentimenduak.module').then( m => m.SentimenduakPageModule)
+  },{
+    path: 'intro',
+    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
   },
+
+  {
+    path: 'test-galderak',
+    loadChildren: () => import('./test-galderak/test-galderak.module').then( m => m.TestGalderakPageModule)
+  },
+  {
+    path: 'hizki-sopa',
+    loadChildren: () => import('./hizki-sopa/hizki-sopa.module').then( m => m.HizkiSopaPageModule)
+  },
+  {
+    path: 'ordenatu-argazkiak',
+    loadChildren: () => import('./ordenatu-argazkiak/ordenatu-argazkiak.module').then( m => m.OrdenatuArgazkiakPageModule)
+  },
+  {
+    path: 'puzzlea',
+    loadChildren: () => import('./puzzlea/puzzlea.module').then( m => m.PuzzleaPageModule)
+  },
+
 ];
 
 @NgModule({

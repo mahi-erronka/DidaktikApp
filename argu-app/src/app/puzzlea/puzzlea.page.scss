@@ -1,0 +1,72 @@
+ion-content {
+    --ion-background-color: #CCFFFF;
+  }
+  .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .izenburua{
+      margin: 10px;
+  }
+  
+
+  .piece-container {
+    position: relative;
+    width: 300px; // Ajusta el tamaño del contenedor según sea necesario
+    height: 200px; // Ajusta el tamaño del contenedor según sea necesario
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B4E95E; /* Puedes ajustar el color de fondo según tus preferencias */
+    
+    margin: 50px;
+  }
+
+  .piece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    position: absolute; /* Asegúrate de que las piezas tengan posición absoluta o relativa */
+  }
+
+  .puzzle-container {
+    position: relative;
+    width: 300px; // Ajusta el tamaño del contenedor según sea necesario
+    height: 200px; // Ajusta el tamaño del contenedor según sea necesario
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B4E95E; /* Puedes ajustar el color de fondo según tus preferencias */
+    margin:50px
+
+  }
+  img {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .botoiak{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.botoiak ion-fab-button{
+    margin: 1em;
+    border: 2px solid black;
+    border-radius: 2em;
+
+    --background:#d8e246;
+}
+
+.botoiak ion-fab-button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+  
