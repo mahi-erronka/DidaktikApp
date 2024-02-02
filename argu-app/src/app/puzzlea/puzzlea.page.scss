@@ -1,5 +1,5 @@
 ion-content {
-    --ion-background-color: #f0f0f0;
+    --ion-background-color: #CCFFFF;
   }
   .main{
     display: flex;
@@ -7,6 +7,13 @@ ion-content {
     justify-content: center;
     align-items: center;
   }
+
+
+  .izenburua{
+      margin: 10px;
+  }
+  
+
   .piece-container {
     position: relative;
     width: 300px; // Ajusta el tamaño del contenedor según sea necesario
@@ -14,8 +21,8 @@ ion-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #050505; /* Puedes ajustar el color de fondo según tus preferencias */
-    border: 2px solid #fc0505; // Borde para el contenedor del rompecabezas
+    background-color: #B4E95E; /* Puedes ajustar el color de fondo según tus preferencias */
+    
     margin: 50px;
   }
 
@@ -35,16 +42,13 @@ ion-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #050505; /* Puedes ajustar el color de fondo según tus preferencias */
-    border: 2px solid #fc0505; // Borde para el contenedor del rompecabezas
+    background-color: #B4E95E; /* Puedes ajustar el color de fondo según tus preferencias */
     margin:50px
 
   }
-  .puzzle-container.completed {
-    border-color: green; /* Cambia el borde cuando el rompecabezas está completo */
-  }
-
   img {
     position: absolute;
     cursor: pointer;
   }
+
+  

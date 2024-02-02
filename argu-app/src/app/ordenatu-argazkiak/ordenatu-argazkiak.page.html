@@ -1,21 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>ordenatu-argazkiak</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ORDENATU KRONOLOGIKOKI ARGAZKI HAUEK:</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item *ngFor="let image of shuffledImages; let i = index" (click)="onImageClick(i)">
-        <img [src]="image" *ngIf="visibleImages[i]" class="button-image">
-      </ion-item>
-    </ion-list>
+
+  <div class="ion-text-center">
+    <div class="panel" [ngStyle]="{'visibility': panel_visible}"></div>
+
+    <!--MAPA-->
+    <div class="map-container" [ngStyle]="{'visibility': mapa_visible}">
+      <img src="assets/img/mapa_argu.png">
+      <h5 class="map-text">ATXURI GELTOKIA</h5>
+      <ion-fab-button class="map-button" (click)="hurrengoJokoa('/puzzlea')"><ion-icon name="flag"></ion-icon></ion-fab-button>
+    </div>
     
-  </ion-content>
+      <div class="main">
+        <h1 class="izenburua">ORDENATU KRONOLOGIKOKI</h1>
+        <h1 class="izenburua">ARGAZKI HAUEK</h1>
+        <div class="argazkiak" *ngFor="let image of shuffledImages; let i = index">
+          
+            <img [src]="image" *ngIf="visibleImages[i]" class="button-image" (click)="onImageClick(i)">
+          
+        </div>
+        <div class="botoiak">
+          <!--<ion-fab-button (click)="audioJarraitu()"><ion-icon name="play"></ion-icon></ion-fab-button>
+          <ion-fab-button (click)="audioGelditu()"><ion-icon name="pause"></ion-icon></ion-fab-button>-->
+          <ion-fab-button (click)="mapaErakutsi()" [disabled]="mapa_botoia"><ion-icon name="map"></ion-icon></ion-fab-button>
+        </div>
+      </div>
+      
+    
+  </div>
 </ion-content>

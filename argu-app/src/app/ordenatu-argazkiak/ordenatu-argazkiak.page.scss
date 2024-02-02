@@ -1,0 +1,65 @@
+ion-content {
+    --ion-background-color: #CCFFFF;
+  }
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.argazkiak{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-image{
+  margin: 20px;
+  width: 300px;
+  height: 200px;
+}
+
+.izenburua{
+  margin: 20px;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75); 
+  z-index: 5; 
+  
+}
+
+.map-container{
+  position: fixed;
+  left: -0.5%;
+  bottom:35%;
+  width: 100%;
+  z-index: 10;  
+}
+
+.map-container ion-fab-button{
+  --background:#ff0000;
+}
+
+.map-button{
+  position: absolute;
+  top: 22%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+}
+
+.map-text{
+  position: absolute;
+  top: 0%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  color: #ff0000;
+}

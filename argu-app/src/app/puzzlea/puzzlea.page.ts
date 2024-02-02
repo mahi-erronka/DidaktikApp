@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { StatusBar } from '@capacitor/status-bar';
 
 
@@ -33,50 +34,49 @@ export class PuzzleaPage implements OnInit {
   
   originalPositions: PuzzlePiece[]=[
     {src: '../../assets/img/pieza1.jpg', x: 225, y: 433.35, width: 75, height: 66.67, zIndex: 1, placed: true},
-    {src: '../../assets/img/pieza2.jpg', x: 150, y: 433.35, width: 75, height: 66.67, zIndex: 2, placed: true},
-    {src: '../../assets/img/pieza3.jpg', x: 75, y: 433.35, width: 75, height: 66.67, zIndex: 3, placed: true},
-    {src: '../../assets/img/pieza4.jpg', x: 0, y: 433.35, width: 75, height: 66.67, zIndex: 4, placed: true},
-    {src: '../../assets/img/pieza5.jpg', x: 225, y: 366.68, width: 75, height: 66.67, zIndex: 5, placed: true},
-    {src: '../../assets/img/pieza6.jpg', x: 150, y: 366.68, width: 75, height: 66.67, zIndex: 6, placed: true},
-    {src: '../../assets/img/pieza7.jpg', x: 75, y: 366.68, width: 75, height: 66.67, zIndex: 7, placed: true},
-    {src: '../../assets/img/pieza8.jpg', x: 0, y: 366.68, width: 75, height: 66.67, zIndex: 8, placed: true},
-    {src: '../../assets/img/pieza9.jpg', x: 225, y: 300.01, width: 75, height: 66.67, zIndex: 9, placed: true},
-    {src: '../../assets/img/pieza10.jpg', x: 150, y: 300.01, width: 75, height: 66.67, zIndex: 10, placed: true},
-    {src: '../../assets/img/pieza11.jpg', x: 75, y: 300.01, width: 75, height: 66.67, zIndex: 11, placed: true},
-    {src: '../../assets/img/pieza12.jpg', x: 0, y: 300.01, width: 75, height: 66.67, zIndex: 12, placed: true}
+    {src: '../../assets/img/pieza2.jpg', x: 150, y: 433.35, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza3.jpg', x: 75, y: 433.35, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza4.jpg', x: 0, y: 433.35, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza5.jpg', x: 225, y: 366.68, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza6.jpg', x: 150, y: 366.68, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza7.jpg', x: 75, y: 366.68, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza8.jpg', x: 0, y: 366.68, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza9.jpg', x: 225, y: 300.01, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza10.jpg', x: 150, y: 300.01, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza11.jpg', x: 75, y: 300.01, width: 75, height: 66.67, zIndex: 1, placed: true},
+    {src: '../../assets/img/pieza12.jpg', x: 0, y: 300.01, width: 75, height: 66.67, zIndex: 1, placed: true}
   ];
 
  
   
   pieces: PuzzlePiece[]=[
   {src: '../../assets/img/pieza1.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
-  {src: '../../assets/img/pieza2.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 2, placed: false},
-  {src: '../../assets/img/pieza3.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 3, placed: false},
-  {src: '../../assets/img/pieza4.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 4, placed: false},
-  {src: '../../assets/img/pieza5.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 5, placed: false},
-  {src: '../../assets/img/pieza6.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 6, placed: false},
-  {src: '../../assets/img/pieza7.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 7, placed: false},
-  {src: '../../assets/img/pieza8.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 8, placed: false},
-  {src: '../../assets/img/pieza9.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 9, placed: false},
-  {src: '../../assets/img/pieza10.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 10, placed: false},
-  {src: '../../assets/img/pieza11.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 11, placed: false},
-  {src: '../../assets/img/pieza12.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 12, placed: false}
+  {src: '../../assets/img/pieza2.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza3.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza4.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza5.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza6.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza7.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza8.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza9.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza10.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza11.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false},
+  {src: '../../assets/img/pieza12.jpg', x: 0, y: 0, width: 75, height: 66.67, zIndex: 1, placed: false}
   ];
   
   selectedPieceIndex: number = -1;
   offsetX: number = 0;
   offsetY: number = 0;
   completed: boolean = false;
-  constructor() { 
+
+  //MAPA
+  mapa_visible = 'hidden';
+  mapa_botoia = 'true';
+  panel_visible = 'hidden';
+  constructor(private route: Router) { 
     
   }
-  
-  /*ngAfterViewInit() {
-    const element = this.el.nativeElement;
 
-    // Escucha eventos táctiles
-    this.renderer.listen(element, 'touchstart', (event: TouchEvent) => this.startDrag(event));
-  }*/
   selectPiece(index: number) {
     this.selectedPieceIndex = index;
     this.offsetX = 0;
@@ -96,6 +96,7 @@ export class PuzzleaPage implements OnInit {
         
         
         if (this.selectedPieceIndex !== -1) {
+          this.pieces[this.selectedPieceIndex].zIndex = 2;
           this.offsetX = touch.clientX - this.pieces[this.selectedPieceIndex].x;
           this.offsetY = touch.clientY - this.pieces[this.selectedPieceIndex].y;
 
@@ -116,7 +117,7 @@ export class PuzzleaPage implements OnInit {
   endDrag() {
     document.removeEventListener('touchmove', this.handleDrag.bind(this));
     document.removeEventListener('touchend', this.endDrag.bind(this));
-
+    this.pieces[this.selectedPieceIndex].zIndex = 1;
    
     this.selectedPieceIndex = -1;
     this.offsetX = 0;
@@ -138,8 +139,7 @@ export class PuzzleaPage implements OnInit {
 
   checkProximity() {
     const snapDistance = 20; // Ajusta la distancia de proximidad según sea necesario
-    const containerWidth = window.innerWidth;
-    const containerHeight = window.innerHeight;
+
     const piece = this.pieces[this.selectedPieceIndex];
 
     for (let i = 0; i < this.pieces.length; i++) {
@@ -177,6 +177,7 @@ export class PuzzleaPage implements OnInit {
 
     if(correct){
       this.completed = true;
+      this.mapa_botoia = 'false';
       console.log('¡Rompecabezas resuelto correctamente!');
     } else{
       this.completed = false;
@@ -184,8 +185,16 @@ export class PuzzleaPage implements OnInit {
     }
   }
   
-  ngOnInit(){
 
+  generatepuzzle(){
+    for(let i = 0;i< this.pieces.length;i++){
+      this.pieces[i].x = Math.random() * 150;
+      this.pieces[i].y = Math.random() * 100;
+    }
+  }
+
+  ngOnInit(){
+    this.generatepuzzle();
   }
 
 }
