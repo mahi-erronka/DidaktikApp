@@ -43,7 +43,11 @@ const routes: Routes = [
   {
     path: 'puzzlea',
     loadChildren: () => import('./puzzlea/puzzlea.module').then( m => m.PuzzleaPageModule)
+  },  {
+    path: 'amaiera',
+    loadChildren: () => import('./amaiera/amaiera.module').then( m => m.AmaieraPageModule)
   },
+
 
 ];
 

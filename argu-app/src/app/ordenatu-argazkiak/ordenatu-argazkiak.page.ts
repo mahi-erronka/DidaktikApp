@@ -76,13 +76,12 @@ export class OrdenatuArgazkiakPage implements OnInit {
 
       // Verifica si todas las imágenes han sido colocadas en el orden correcto
       if (this.clickedImages.length === this.correctOrder.length) {
-        alert('¡Felicidades! Ordenaste todas las imágenes correctamente.');
-
+        //alert('Zorionak jokoa amaitu duzu');
         this.mapa_botoia = 'false';
         
       }
     } else {
-      alert('Oops, ese no era el siguiente en la secuencia correcta. Inténtalo de nuevo.');
+      alert('Hori ez zen argazki zuzena.Saiatu berriro.');
       this.resetGame();
       // Puedes realizar acciones adicionales si el clic no es correcto
     }

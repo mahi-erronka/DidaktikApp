@@ -22,6 +22,8 @@ interface PuzzlePiece {
 
 export class PuzzleaPage implements OnInit {
   
+
+  
   containerWidth = 400;
   containerHeight = 300;
 
@@ -224,6 +226,16 @@ export class PuzzleaPage implements OnInit {
     this.audio_1.addEventListener('ended', () => {//Bigarren audioa amaitzerakoan
       this.playAudio(this.audio_2);
     });
+  }
+
+  mapaErakutsi(){
+    this.mapa_visible = 'visible';
+    this.panel_visible = 'visible';
+  }
+  
+  hurrengoJokoa(ruta:any){
+    this.audio_active.pause()
+    this.route.navigate([ruta]);
   }
 
   ngOnInit(){
