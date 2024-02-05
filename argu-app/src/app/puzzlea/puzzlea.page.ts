@@ -232,5 +232,8 @@ export class PuzzleaPage implements OnInit {
     this.audioakKargatu()
     this.playAudio(this.audio_1)
   }
-
+  mapaErakutsi(){
+    this.mapa_visible = 'visible';
+    this.panel_visible = 'visible';
+  }
 }

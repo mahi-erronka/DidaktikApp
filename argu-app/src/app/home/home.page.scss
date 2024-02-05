@@ -46,3 +46,6 @@ ion-content {
   height: 100%;
   object-fit: cover; /* Ajusta el tamaño del gif para cubrir completamente el contenedor */
 }
+.marea-gif {
+  opacity: 0.4385; /* Puedes ajustar el valor según la cantidad de transparencia que desees (0.0 - 1.0) */
+}

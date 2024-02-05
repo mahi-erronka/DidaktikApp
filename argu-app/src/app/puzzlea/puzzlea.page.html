@@ -2,6 +2,16 @@
 <ion-content [fullscreen]="true">
   <div class="main">
 
+    <div class="panel" [ngStyle]="{'visibility': panel_visible}"></div>
+    
+    <!--MAPA-->
+    <div class="map-container" [ngStyle]="{'visibility': mapa_visible}">
+      <img src="assets/img/mapa_argu.png">
+      <p class="map-text">TXAKURREN KALEA</p>
+      <ion-fab-button class="map-button" ><ion-icon name="flag"></ion-icon></ion-fab-button>
+    </div>
+
+
     <h1 class="izenburua">EBATZI PUZZLEA</h1>
 
     <div class="piece-container" (touchmove)="startDrag($event)">
@@ -20,6 +30,7 @@
       <div class="botoiak">
         <ion-fab-button (click)="audioJarraitu()"><ion-icon name="play"></ion-icon></ion-fab-button>
         <ion-fab-button (click)="audioGelditu()"><ion-icon name="pause"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="mapaErakutsi()" ><ion-icon name="map"></ion-icon></ion-fab-button>
       </div>
     </div>
  

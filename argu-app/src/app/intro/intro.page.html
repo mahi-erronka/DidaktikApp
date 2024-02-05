@@ -13,8 +13,7 @@
   </ion-row>
 
 
-  <!-- Botón para reiniciar el segundo audio -->
-<ion-button expand="full" (click)="reiniciarAudio2()"[disabled]="reproduciendoAudio">Reiniciar Audio 2</ion-button>
+
 
 <!-- Div para el diálogo del personaje -->
 <!-- <div class="dialogo">
@@ -23,4 +22,11 @@
   <div [innerHTML]="dialogo"></div>
 </div> -->
   <ion-img src="assets/img/Argu.png" class="esquina-img"></ion-img>
+
+  <div class="botoiak">
+    <ion-fab-button  (click)="audioJarraitu()"><ion-icon name="play"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="audioGelditu()" ><ion-icon name="pause"></ion-icon></ion-fab-button>
+    
+  </div>
+  
 </ion-content>

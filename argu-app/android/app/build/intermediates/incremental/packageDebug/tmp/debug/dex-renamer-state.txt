@@ -1,8 +1,8 @@
-#Sun Feb 04 19:43:48 CET 2024
-base.0=C\:\\Users\\Hodei\\Desktop\\ionic\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Hodei\\Desktop\\ionic\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\Hodei\\Desktop\\ionic\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=C\:\\Users\\Hodei\\Desktop\\ionic\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+#Mon Feb 05 13:18:50 CET 2024
+base.0=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.3=C\:\\Users\\olivas.hodei\\Documents\\GitHub\\DidaktikApp\\argu-app\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex

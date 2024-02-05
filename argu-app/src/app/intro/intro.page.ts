@@ -9,7 +9,7 @@ export class IntroPage implements OnInit {
   // Audio
   private Audio1 = new Audio('assets/audio/0Gunea/Audio1.mp3');
   private Audio2 = new Audio('assets/audio/0Gunea/Audio2.mp3');
-
+  audio_active : any;
   dialogo: string = '';
   reproduciendoAudio: boolean = true; // Nueva propiedad para controlar la reproducción de audio
 
@@ -67,9 +67,9 @@ export class IntroPage implements OnInit {
     }, 85);
   }
 
-  playAudio(audio: HTMLAudioElement) {
-    this.reproduciendoAudio = true; // Bloquear los botones cuando se inicie la reproducción del audio
-    audio.play();
+  playAudio(audio: any) {
+    this.audio_active = audio
+    audio.play()
   }
   cerrarDialogo() {
     // Lógica para cerrar el diálogo, por ejemplo, restablecer el contenido del diálogo y detener la reproducción de audio si es necesario
@@ -81,4 +81,13 @@ export class IntroPage implements OnInit {
     
     this.playAudio(this.Audio2);
   }
+
+  audioGelditu(){
+    this.audio_active.pause()
+  }
+
+  audioJarraitu(){
+    this.audio_active.play()
+  }
+
 }
