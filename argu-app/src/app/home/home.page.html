@@ -1,28 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="izenburua ion-text-center">
+    <h1>GURE</h1>
+    <h1>UHOLDEA</h1>
+  </div>
+  <div class="container ion-text-center">
+    <ion-button (click)="pushButton()"class="botoia" [routerLink]="['/intro']">Hasi</ion-button>
+  </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-
-    <ion-button color="primary" [routerLink]="['/intro']">
-      <ion-icon name="information-circle-outline"></ion-icon>Hizki sopa 
-    </ion-button>
-
-    <ion-button color="primary" [routerLink]="['/test-galderak']">
-      <ion-icon name="information-circle-outline"></ion-icon> Galderak
-    </ion-button>
+  <div class="marea-container">
+    <img src="assets/img/lluvia.gif" alt="Marea GIF" class="marea-gif">
   </div>
 </ion-content>

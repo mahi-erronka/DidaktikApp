@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ordenatu-argazkiak',
@@ -8,13 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class OrdenatuArgazkiakPage implements OnInit {
 
   images :string[] = ['../../assets/img/San-Anton1.jpg','../../assets/img/San-Anton2.jpg','../../assets/img/San-Anton3.jpg','../../assets/img/San-Anton4.jpg',];
-
+   
   shuffledImages: string[];
   visibleImages: boolean[];
   clickedImages: string[] = [];
   correctOrder: string[];
 
-  constructor() { 
+
+  //AUDIO
+  audio_1 : any;
+  audio_active : any;
+
+  //MAPA
+   mapa_visible = 'hidden';
+   mapa_botoia = 'true';
+   panel_visible = 'hidden';
+
+  constructor(private route: Router) { 
     this.correctOrder = [...this.images];
     this.shuffledImages = this.shuffleArray(this.images);
     this.visibleImages = Array(this.images.length).fill(true); // Inicialmente, todas las imágenes son visibles
@@ -66,7 +77,9 @@ export class OrdenatuArgazkiakPage implements OnInit {
       // Verifica si todas las imágenes han sido colocadas en el orden correcto
       if (this.clickedImages.length === this.correctOrder.length) {
         alert('¡Felicidades! Ordenaste todas las imágenes correctamente.');
-        // Puedes realizar acciones adicionales si todas las imágenes están en el orden correcto
+
+        this.mapa_botoia = 'false';
+        
       }
     } else {
       alert('Oops, ese no era el siguiente en la secuencia correcta. Inténtalo de nuevo.');
@@ -75,10 +88,39 @@ export class OrdenatuArgazkiakPage implements OnInit {
     }
     
   }
+  mapaErakutsi(){
+    this.mapa_visible = 'visible';
+    this.panel_visible = 'visible';
+  }
   
+  hurrengoJokoa(ruta:any){
+    this.audio_active.pause()
+    this.route.navigate([ruta]);
+  }
+
+  playAudio(audio : any){
+    this.audio_active = audio
+    audio.play()
+  }
+
+  audioGelditu(){
+    this.audio_active.pause()
+  }
+
+  audioJarraitu(){
+    this.audio_active.play()
+  }
+
+  audioakKargatu(){
+    this.audio_1 = new Audio();
+    this.audio_1.src = 'assets/audio/5Gunea/audio_5_gunea.mp3';
+    this.audio_1.load();
+
+  }
 
   ngOnInit() {
-    
+    this.audioakKargatu()
+    this.playAudio(this.audio_1)
   }
 
 }

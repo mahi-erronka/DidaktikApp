@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center">
+    <div class="panel" [ngStyle]="{'visibility': panel_visible}"></div>
+
+    <!--MAPA-->
+    <div class="map-container" [ngStyle]="{'visibility': mapa_visible}">
+      <img src="assets/img/mapa_argu.png">
+      <h5 class="map-text">SAN ANTON ZUBIA</h5>
+      <ion-fab-button class="map-button" (click)="hurrengoJokoa('/ordenatu-argazkiak')"><ion-icon name="flag"></ion-icon></ion-fab-button>
+    </div>
+
+    <div class="ion-text-center">
+      <h1>HITZAK</h1>
+      <h1>ETA ZENBAKIAK LOTU</h1>
+    </div>
+
+    <div class="main">
+      <div class="hitzak">
+        <div *ngFor="let item of hitzak">
+          <!--<ion-button  [color]="item.color" (click)="HitzaAukeratu(item)" [disabled]="item.disabled">
+            {{item.value}}
+          </ion-button>-->
+          <ion-button [ngStyle]="{'--background': item.color}" (click)="HitzaAukeratu(item)" [disabled]="item.disabled">
+            {{item.value}}
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="zenbakiak">
+        <div *ngFor="let item of zenbakiak">
+          <ion-button [ngStyle]="{'--background': item.color}" (click)="ZenbakiaAukeratu(item)" [disabled]="item.disabled">
+            {{item.value}}
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="botoiak">
+        <ion-fab-button (click)="audioJarraitu()"><ion-icon name="play"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="audioGelditu()"><ion-icon name="pause"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="mapaErakutsi()" [disabled]="mapa_botoia"><ion-icon name="map"></ion-icon></ion-fab-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

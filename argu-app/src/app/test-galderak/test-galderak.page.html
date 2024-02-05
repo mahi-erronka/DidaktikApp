@@ -1,12 +1,25 @@
 <ion-header>
 </ion-header>
 
-<ion-content class="ion-padding">
+<div class="panel" [ngStyle]="{'visibility': panel_visible}"></div>
 
-  <div>
-    <p>Puntos: {{ puntos }}</p>
-    <p>Tiempo restante: {{ tiempoRestante }} segundos</p>
-  </div>
+<!--MAPA-->
+<div class="map-container" [ngStyle]="{'visibility': mapa_visible}">
+  <img src="assets/img/mapa_argu.png">
+  <h5 class="map-text">ASTE NAGUSIA</h5>
+  <ion-fab-button class="map-button" (click)="hurrengoJokoa('/kantua')"><ion-icon name="flag"></ion-icon></ion-fab-button>
+</div>
+
+
+<video controls width="100%" height="auto">
+  <source src="assets/video/Itsasadarraren bideoa.MOV" type="video/mp4">
+  Tu navegador no soporta el elemento de video.
+</video>
+<div>
+  <p>Puntos: {{ puntos }}</p>
+  <p>Tiempo restante: {{ tiempoRestante }} segundos</p>
+</div>
+<ion-content class="ion-padding">
   <div *ngIf="juegoIniciado && !juegoTerminado">
     <h2>{{ preguntaActual.pregunta }}</h2>
     <ion-button *ngFor="let respuesta of preguntaActual.respuestas" (click)="verificarRespuesta(respuesta)"
@@ -35,16 +48,13 @@
       <p>{{ pregunta.pregunta }} - Respuesta Correcta: {{ pregunta.respuestaCorrecta }}</p>
     </div>
   </div>
-
-   <!-- Botón para reiniciar el segundo audio -->
-
-
-<!-- Div para el diálogo del personaje -->
-<div class="dialogo">
-  <div class="nombre-personaje">Argu</div>
-  
-  <div [innerHTML]="dialogo"></div>
-</div>
   <ion-img src="assets/img/Argu.png" class="esquina-img"></ion-img>
+  <div class="botoiak">
+    <ion-fab-button ><ion-icon name="play"></ion-icon></ion-fab-button>
+    <ion-fab-button ><ion-icon name="pause"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="mapaErakutsi()" [disabled]="mapa_botoia"><ion-icon name="map"></ion-icon></ion-fab-button>
+  </div>
 </ion-content>
+
+
 

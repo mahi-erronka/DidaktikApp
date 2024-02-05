@@ -1,33 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>puzzlea</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">puzzlea</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    
-    <div class="main">
-      <div class="piece-container" (touchmove)="startDrag($event)">
-        <img class="piece" *ngFor="let piece of pieces; let i = index"
-          [src]="piece.src"
-          [style.left.px]="piece.x"
-          [style.top.px]="piece.y"
-          [style.width.px]="piece.width"
-          [style.height.px]="piece.height"
-          [style.z-index]="piece.zIndex"
-          (touchstart)="selectPiece(i)">
+  <div class="main">
+
+    <h1 class="izenburua">EBATZI PUZZLEA</h1>
+
+    <div class="piece-container" (touchmove)="startDrag($event)">
+      <img class="piece" *ngFor="let piece of pieces; let i = index"
+        [src]="piece.src"
+        [style.left.px]="piece.x"
+        [style.top.px]="piece.y"
+        [style.width.px]="piece.width"
+        [style.height.px]="piece.height"
+        [style.z-index]="piece.zIndex"
+        (touchstart)="selectPiece(i)">
       </div>
     
       <div class="puzzle-container" [class.completed]="completed">
       </div>
+      <div class="botoiak">
+        <ion-fab-button (click)="audioJarraitu()"><ion-icon name="play"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="audioGelditu()"><ion-icon name="pause"></ion-icon></ion-fab-button>
+      </div>
     </div>
-    
-  </ion-content>
-
+ 
 </ion-content>

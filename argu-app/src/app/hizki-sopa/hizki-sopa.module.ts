@@ -1,13 +1,20 @@
-// hizki-sopa.module.ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Agrega esta importación
-import { HizkiSopaComponent } from './hizki-sopa.component';
+
+import { HizkiSopaPageRoutingModule } from './hizki-sopa-routing.module';
+
+import { HizkiSopaPage } from './hizki-sopa.page';
 
 @NgModule({
-  declarations: [HizkiSopaComponent],
-  imports: [CommonModule, IonicModule], // Asegúrate de agregar CommonModule aquí
-  exports: [HizkiSopaComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HizkiSopaPageRoutingModule
+  ],
+  declarations: [HizkiSopaPage]
 })
-export class HizkiSopaModule {}
+export class HizkiSopaPageModule {}

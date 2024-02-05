@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-test-galderak',
   templateUrl: 'test-galderak.page.html',
@@ -9,7 +9,15 @@ export class TestGalderakPage {
   juegoTerminado: boolean = false;
   juegoIniciado: boolean = false;
   mostrarRespuestas: boolean = false;
-  dialogo: string = '';
+
+  //Audio
+  private Audio3 = new Audio('assets/audio/1Gunea/Audio3.mp3');
+  reproduciendoAudio: boolean = true; 
+
+   //MAPA
+   mapa_visible = 'hidden';
+   mapa_botoia = 'false';
+   panel_visible = 'hidden';
   preguntas: any[] = [
     {
       pregunta: 'Noiz izan zen Bilboko uholderik larriena?',
@@ -45,7 +53,7 @@ export class TestGalderakPage {
   
   interval: any;
   
-  constructor() {this.iniciarDialogo();}
+  constructor(private route: Router) { this.playAudio(this.Audio3);}
 
   iniciarJuego() {
     this.juegoTerminado = false;
@@ -64,6 +72,18 @@ export class TestGalderakPage {
     this.shuffleArray(this.preguntas);
     this.siguientePregunta();
   }
+
+  hurrengoJokoa(ruta: any) {
+    this.Audio3.pause();
+  
+    this.route.navigate([ruta]);
+  }
+
+    //Mapa erakusteko botoia aktibatzeko
+    mapaErakutsi(){
+      this.mapa_visible = 'visible';
+      this.panel_visible = 'visible';
+    }
 
   verificarRespuesta(respuestaSeleccionada: string) {
     clearInterval(this.interval);
@@ -134,28 +154,10 @@ export class TestGalderakPage {
     this.mostrarRespuestas = true;
   }
 
-  iniciarDialogo() {
-    let textoCompleto =
-      "Kaixo Umeak! Zelan? \n\n Nire izena Argu da eta oso arrain nagusia naiz. Ni zuen bidaiaren " +
-      "gidaria izango naiz. \n\n Ni 1983an jaio nintzen. Ba ahal daki inork zer gertatu zen 1983an?\n\n" +
-      "Ondo da! Egingo dugun bidai magiko honetan, 1983an gertatutako uhoaldeari buruz hitz " +
-      "egingo dugu eta horretarako gure hiriko zazpi kaleetatik ibiliko gara. Ibilbide honetan zehar " +
-      "zazpi ondare garrantzitsu ikusiko ditugu, bertan ikusteko uholdeak izan zuen garrantzia eta " +
-      "izandako kalteak.\n\n Eta zeintzuk dira zazpi ondare horiek?\n\n Sopa letra honetan ondareekin erlazio" +
-      "estua duten hitzak aurkituko dituzue.\n\n Bilatu eta animo!";
-
-    // Reemplazamos los saltos de línea por etiquetas <br>
-    textoCompleto = textoCompleto.replace(/\n/g, '<br>');
-
-    let index = 0;
-    const interval = setInterval(() => {
-     
-      index++;
-      if (index === textoCompleto.length) {
-        clearInterval(interval);
-      }
-    }, 85);
+  playAudio(audio: HTMLAudioElement) {
+    this.reproduciendoAudio = true; // Bloquear los botones cuando se inicie la reproducción del audio
+    audio.play();
   }
-  
 }
+
 

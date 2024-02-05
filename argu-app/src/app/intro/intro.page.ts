@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -13,7 +13,7 @@ export class IntroPage implements OnInit {
   dialogo: string = '';
   reproduciendoAudio: boolean = true; // Nueva propiedad para controlar la reproducción de audio
 
-  constructor() {
+  constructor(private route: Router) {
     this.playAudio(this.Audio1);
     this.Audio1.addEventListener('ended', () => {
       // Comienza la reproducción del segundo audio
@@ -36,6 +36,12 @@ export class IntroPage implements OnInit {
     } else {
       console.log('Espera a que termine el audio antes de seleccionar una opción.');
     }
+  }
+
+  hurrengoJokoa(ruta: any) {
+    this.Audio1.pause();
+    this.Audio2.pause();
+    this.route.navigate([ruta]);
   }
 
   iniciarDialogo() {
@@ -65,7 +71,11 @@ export class IntroPage implements OnInit {
     this.reproduciendoAudio = true; // Bloquear los botones cuando se inicie la reproducción del audio
     audio.play();
   }
- 
+  cerrarDialogo() {
+    // Lógica para cerrar el diálogo, por ejemplo, restablecer el contenido del diálogo y detener la reproducción de audio si es necesario
+    this.dialogo = '';
+    // Puedes agregar más lógica según tus necesidades
+  }
 
   reiniciarAudio2() {
     

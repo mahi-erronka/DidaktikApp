@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { Routes, RouterModule } from '@angular/router';
 
+import { HizkiSopaPage } from './hizki-sopa.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HizkiSopaPage
+  }
+];
 
 @NgModule({
-  declarations: [
-   
-  ],
-  imports: [
-    CommonModule,
-    IonicModule,
-  ],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class HizkiSopaRoutingModule { }
+export class HizkiSopaPageRoutingModule {}
