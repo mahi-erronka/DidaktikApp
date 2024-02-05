@@ -13,9 +13,10 @@ export class KantuaPage implements OnInit {
   erantzunak : string[] = ['gauekoa','Abuztuan','katuak','Marijaia','gazte','andre','Zapia','dantzetan','erlojua','zoratu','barriro','Aste Nagusira','Marijaia','Aste Nagusira','Marijaia']
   // Initialize the array with a specific size and empty objects
   sartutakoak: { value: string, color: string, disabled: string }[] = Array.from({ length: 15 }, () => ({} as { value: string, color: string, disabled: string }));
+  asmatutakoak = 0
   constructor(private route: Router) {}
 
-  checkBotoia = 'true'//Erantzunak konprobatzeko botoia aktibatu eta desaktibatzeko
+  checkBotoia = 'false'//Erantzunak konprobatzeko botoia aktibatu eta desaktibatzeko
   //AUDIO
   audio_1 : any;
   audio_2 : any;
@@ -33,11 +34,16 @@ export class KantuaPage implements OnInit {
       if(this.sartutakoak[i].value != null && this.erantzunak[i].toLocaleLowerCase() == this.sartutakoak[i].value.toLocaleLowerCase()){
         console.log("Erantzuna " + i + ": ZUZENA");
         this.sartutakoak[i].color = '#83ff61';
+        this.sartutakoak[i].disabled = 'true';
+        this.asmatutakoak += 1;
       }else{
         console.log("Erantzuna " + i + ": OKERRA");
         this.sartutakoak[i].color = '#ff6b61';
       }
-      this.sartutakoak[i].disabled = 'true';
+      
+      if(this.asmatutakoak >= 15){//Guztiak asmatzerakoan maparen botoia aktibatu
+        this.mapa_botoia = 'false'
+      }
     }
 
     this.mapa_botoia = 'false'//Mapa erakusteko botoia aktibatu

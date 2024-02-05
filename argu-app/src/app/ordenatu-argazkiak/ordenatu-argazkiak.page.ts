@@ -22,7 +22,7 @@ export class OrdenatuArgazkiakPage implements OnInit {
 
   //MAPA
    mapa_visible = 'hidden';
-   mapa_botoia = 'true';
+   mapa_botoia = 'false';
    panel_visible = 'hidden';
 
   constructor(private route: Router) { 
