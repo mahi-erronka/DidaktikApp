@@ -11,15 +11,17 @@
 </div>
 
 
-<video controls width="100%" height="auto">
-  <source src="assets/video/Itsasadarraren bideoa.MOV" type="video/mp4">
-  Tu navegador no soporta el elemento de video.
-</video>
-<div>
-  <p>Puntos: {{ puntos }}</p>
-  <p>Tiempo restante: {{ tiempoRestante }} segundos</p>
-</div>
+
+
 <ion-content class="ion-padding">
+  <video controls width="100%" height="auto">
+    <source src="assets/video/Itsasadarraren bideoa.MOV" type="video/mp4">
+    Ezin da bideo jarri zure mugikorra dela eta.
+  </video>
+  <div>
+    <p>Puntuazioa: {{ puntos }}</p>
+    <p>Denbora: {{ tiempoRestante }} segundu</p>
+  </div>
   <div *ngIf="juegoIniciado && !juegoTerminado">
     <h2>{{ preguntaActual.pregunta }}</h2>
     <ion-button *ngFor="let respuesta of preguntaActual.respuestas" (click)="verificarRespuesta(respuesta)"
@@ -29,23 +31,23 @@
   </div>
   <div *ngIf="juegoTerminado">
     <h2>¡Juego Terminado!</h2>
-    <ion-button (click)="repetirIntento()">Repetir Intento</ion-button>
+    <ion-button class="hasi"(click)="repetirIntento()"> Errepikatu Saiakera</ion-button>
   </div>
   <div *ngIf="!juegoIniciado && !juegoTerminado">
-    <ion-button (click)="iniciarJuego()">Iniciar Juego</ion-button>
+    <ion-button class="hasi"(click)="iniciarJuego()">Hasi galdetegia </ion-button>
   </div>
-</ion-content>
-<ion-content class="ion-padding">
+
+
   <!-- ... (código existente) -->
 
   <!-- Agrega un botón para mostrar respuestas correctas -->
-  <ion-button (click)="mostrarRespuestasCorrectas()" *ngIf="juegoTerminado">Mostrar Respuestas Correctas</ion-button>
+  <ion-button (click)="mostrarRespuestasCorrectas()" *ngIf="juegoTerminado">Erantzun zuzenak</ion-button>
 
   <!-- Muestra las respuestas correctas si el botón ha sido presionado -->
   <div *ngIf="mostrarRespuestas">
-    <h2>Respuestas Correctas</h2>
+    <h2> Erantzun zuzenak</h2>
     <div *ngFor="let pregunta of preguntas">
-      <p>{{ pregunta.pregunta }} - Respuesta Correcta: {{ pregunta.respuestaCorrecta }}</p>
+      <p>{{ pregunta.pregunta }} - <strong>  Erantzun zuzena:</strong>   {{ pregunta.respuestaCorrecta }}</p>
     </div>
   </div>
   <ion-img src="assets/img/Argu.png" class="esquina-img"></ion-img>
