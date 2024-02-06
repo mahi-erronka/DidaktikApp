@@ -236,4 +236,10 @@ export class PuzzleaPage implements OnInit {
     this.mapa_visible = 'visible';
     this.panel_visible = 'visible';
   }
+
+  hurrengoJokoa(ruta:any){
+    this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
+    this.route.navigate([ruta]);
+  }
+
 }

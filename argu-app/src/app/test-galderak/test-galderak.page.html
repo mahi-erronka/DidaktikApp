@@ -30,7 +30,7 @@
     </ion-button>
   </div>
   <div *ngIf="juegoTerminado">
-    <h2>¡Juego Terminado!</h2>
+    <h2>Galdetegia bukatu da!</h2>
     <ion-button class="hasi"(click)="repetirIntento()"> Errepikatu Saiakera</ion-button>
   </div>
   <div *ngIf="!juegoIniciado && !juegoTerminado">
@@ -41,19 +41,18 @@
   <!-- ... (código existente) -->
 
   <!-- Agrega un botón para mostrar respuestas correctas -->
-  <ion-button (click)="mostrarRespuestasCorrectas()" *ngIf="juegoTerminado">Erantzun zuzenak</ion-button>
+  <ion-button class="hasi"(click)="mostrarRespuestasCorrectas()" *ngIf="juegoTerminado">Erantzun zuzenak</ion-button>
 
   <!-- Muestra las respuestas correctas si el botón ha sido presionado -->
   <div *ngIf="mostrarRespuestas">
-    <h2> Erantzun zuzenak</h2>
+    <h2> Galdereen erantzunak</h2>
     <div *ngFor="let pregunta of preguntas">
       <p>{{ pregunta.pregunta }} - <strong>  Erantzun zuzena:</strong>   {{ pregunta.respuestaCorrecta }}</p>
     </div>
   </div>
   <ion-img src="assets/img/Argu.png" class="esquina-img"></ion-img>
   <div class="botoiak">
-    <ion-fab-button ><ion-icon name="play"></ion-icon></ion-fab-button>
-    <ion-fab-button ><ion-icon name="pause"></ion-icon></ion-fab-button>
+    
     <ion-fab-button (click)="mapaErakutsi()" [disabled]="mapa_botoia"><ion-icon name="map"></ion-icon></ion-fab-button>
   </div>
 </ion-content>
