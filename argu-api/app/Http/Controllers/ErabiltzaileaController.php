@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Erabiltzailea;
 
-
 class ErabiltzaileaController extends Controller
 {
     public function index(){
@@ -34,5 +33,4 @@ class ErabiltzaileaController extends Controller
 
         return response()->json(null, 204);
     }
-    
 }
