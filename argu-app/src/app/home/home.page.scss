@@ -2,14 +2,41 @@ ion-content{
   --background: #ccc url("../../assets/img/bilbo_sarrera.png") no-repeat center center / cover;
 }
 
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.datuak{ 
+  margin-top: 1em;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5em;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 12em;
+  margin-top: 3em;
+}
+
+.reg{
+  margin-top: 1em;
+  margin-left: 1.5em;
+}
+
+.reg button{
+  color: #1900ff;
+  border: 1px solid black;
+  padding: 1em;
 }
 
 .botoia{
-  
   width: 125px;
 
   border: 2px solid black;

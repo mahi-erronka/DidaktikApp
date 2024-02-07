@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-intro',
@@ -13,7 +15,7 @@ export class IntroPage implements OnInit {
   dialogo: string = '';
   reproduciendoAudio: boolean = true; // Nueva propiedad para controlar la reproducción de audio
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute) {
     this.playAudio(this.Audio1);
     this.Audio1.addEventListener('ended', () => {
       // Comienza la reproducción del segundo audio
@@ -27,7 +29,11 @@ export class IntroPage implements OnInit {
     this.iniciarDialogo();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params) => {
+      console.log('Params: ', params);
+    });
+  }
 
   respuesta(opcion: string) {
     if (!this.reproduciendoAudio) {
