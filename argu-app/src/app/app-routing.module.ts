@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'amaiera',
     loadChildren: () => import('./amaiera/amaiera.module').then( m => m.AmaieraPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
 
 
 ];
