@@ -25,6 +25,7 @@ Route::post('erabiltzaileak', [ErabiltzaileaController::class, 'store'])->name('
 Route::put('erabiltzaileak/{id}', [ErabiltzaileaController::class, 'update'])->name('erabiltzaileak/{id}');
 Route::delete('erabiltzaileak/{id}', [ErabiltzaileaController::class, 'delete'])->name('erabiltzaileak/{id}');
 
+
 //partidak
 Route::get('partidak', [PartidaController::class, 'index'])->name('partidak');
 Route::get('partidak/{id}', [PartidaController::class, 'show'])->name('partidak/{id}');
