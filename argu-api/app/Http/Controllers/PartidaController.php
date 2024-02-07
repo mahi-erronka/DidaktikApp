@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Erabiltzailea;
+use App\Models\Partida;
 class PartidaController extends Controller
 {
     //
@@ -20,23 +20,14 @@ class PartidaController extends Controller
     }
     public function store(Request $request){
 
-        $userId = Auth::id();
-        $partida = Partida::create([
-
-            'erabiltzailea_id'=> $userId,
-            'puntuazioa'=>$request->input('puntuazioa'),
-            
-        ]);
+        
+        $partida = Partida::create($request->all());
         return response()->json($partida, 201);
     }
 
     public function update(Request $request, Partida $partida){
-        $partida->update([
+        $partida->update($request->all());
 
-            'erabiltzailea_id'=> $userId,
-            'puntuazioa'=>$request->input('puntuazioa'),
-            
-        ]);
         return response()->json($partida, 201);
     }
 
