@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class KantuaPage implements OnInit {
   // Initialize the array with a specific size and empty objects
   sartutakoak: { value: string, color: string, disabled: string }[] = Array.from({ length: 15 }, () => ({} as { value: string, color: string, disabled: string }));
   asmatutakoak = 0
-  constructor(private route: Router) {}
+  constructor(private route: Router,private router: Router,private activatedRoute: ActivatedRoute) {}
 
   checkBotoia = 'false'//Erantzunak konprobatzeko botoia aktibatu eta desaktibatzeko
   //AUDIO
@@ -29,6 +30,7 @@ export class KantuaPage implements OnInit {
   mapa_botoia = 'false';
   panel_visible = 'hidden';
 
+  puntuazioa: number = 0;
   erantzunakKonprobatu(){
     for(let i = 0;i < this.erantzunak.length;i++){
       if(this.sartutakoak[i].value != null && this.erantzunak[i].toLocaleLowerCase() == this.sartutakoak[i].value.toLocaleLowerCase()){
@@ -48,6 +50,7 @@ export class KantuaPage implements OnInit {
 
     this.mapa_botoia = 'false'//Mapa erakusteko botoia aktibatu
   }
+
 
   //Botoiak desaktibatu audioak amaitu arte
   botoiakDesaktibatu(){
@@ -117,9 +120,14 @@ export class KantuaPage implements OnInit {
     this.panel_visible = 'visible';
   }
 
-  hurrengoJokoa(ruta:any){
+  hurrengoJokoa(){
     this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
-    this.route.navigate([ruta]);
+    const newPuntuazioa = Number(this.puntuazioa) + 5;
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: newPuntuazioa + 5 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/sentimenduak', newParams]);
+
+      console.log('pruebalotu',newParams);
   }
 
 
@@ -127,6 +135,11 @@ export class KantuaPage implements OnInit {
     this.audioakKargatu()
     this.playAudio(this.audio_1)
     this.botoiakDesaktibatu()
+    
+ this.activatedRoute.params.subscribe((newParams) => {
+    console.log('Paramstest: ', newParams);
+  });
+
   }
 
   

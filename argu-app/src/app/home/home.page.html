@@ -3,8 +3,25 @@
     <h1>GURE</h1>
     <h1>UHOLDEA</h1>
   </div>
+
+  <div class="login">
+    <div class="datuak">
+        <ion-input [(ngModel)]="username" placeholder="Erabiltzailea"></ion-input>
+    </div>
+    <div class="datuak">
+        <ion-input type="password" [(ngModel)]="password" placeholder="Pasahitza"></ion-input>
+    </div>
+  </div>
+
+
+
   <div class="container ion-text-center">
-    <ion-button (click)="pushButton()"class="botoia" [routerLink]="['/intro']">Hasi</ion-button>
+    <ion-button  class="botoia"  [routerLink]="['/registro']">Erregistratu</ion-button>
+
+</div>
+
+  <div class="container ion-text-center">
+    <ion-button (click)="login(username, password)"class="botoia" >Hasi</ion-button>
   </div>
 
   <div class="marea-container">

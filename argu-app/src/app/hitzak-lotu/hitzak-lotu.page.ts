@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hitzak-lotu',
@@ -28,7 +29,9 @@ export class HitzakLotuPage implements OnInit {
   mapa_botoia = 'false';
   panel_visible = 'hidden';
 
-  constructor(private route: Router) { }
+  puntuazioa: number = 0;
+
+  constructor(private route: Router,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   HitzakEtaZenbakiakOrdenatu(){
     const randomSort = () => Math.random() - 0.5;
@@ -169,9 +172,15 @@ export class HitzakLotuPage implements OnInit {
     this.audio_active.play()
   }
 
-  hurrengoJokoa(ruta:any){
+  hurrengoJokoa(){
     this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
-    this.route.navigate([ruta]);
+
+    const newPuntuazioa = Number(this.puntuazioa) + 5;
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: newPuntuazioa + 5 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/ordenatu-argazkiak', newParams]);
+
+      console.log('pruebalotu',newParams);
   }
 
   ngOnInit() {
@@ -179,6 +188,9 @@ export class HitzakLotuPage implements OnInit {
     this.botoiakDesaktibatu()
     this.audioakKargatu()
     this.playAudio(this.audio_1)
+    this.activatedRoute.params.subscribe((newParams) => {
+      console.log('Paramstest: ', newParams);
+    });
 
     
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -11,9 +12,10 @@ export class IntroPage implements OnInit {
   private Audio2 = new Audio('assets/audio/0Gunea/Audio2.mp3');
   audio_active : any;
   dialogo: string = '';
+  puntuazioa: number = 0;
   reproduciendoAudio: boolean = true; // Nueva propiedad para controlar la reproducción de audio
 
-  constructor(private route: Router) {
+  constructor(private router: Router,private activatedRoute: ActivatedRoute) {
     this.playAudio(this.Audio1);
     this.Audio1.addEventListener('ended', () => {
       // Comienza la reproducción del segundo audio
@@ -27,7 +29,9 @@ export class IntroPage implements OnInit {
     this.iniciarDialogo();
   }
 
-  ngOnInit() {}
+  ngOnInit() { this.activatedRoute.params.subscribe((params) => {
+    console.log('Params: ', params);
+  });}
 
   respuesta(opcion: string) {
     if (!this.reproduciendoAudio) {
@@ -38,10 +42,14 @@ export class IntroPage implements OnInit {
     }
   }
 
-  hurrengoJokoa(ruta: any) {
+  hurrengoJokoa() {
     this.Audio1.pause();
     this.Audio2.pause();
-    this.route.navigate([ruta]);
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: this.puntuazioa + 5 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/hizki-sopa', newParams]);
+
+      console.log('prueba',newParams);
   }
 
   iniciarDialogo() {

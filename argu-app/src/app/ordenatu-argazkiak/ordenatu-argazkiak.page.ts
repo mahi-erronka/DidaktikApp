@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ordenatu-argazkiak',
@@ -25,7 +26,9 @@ export class OrdenatuArgazkiakPage implements OnInit {
    mapa_botoia = 'true';
    panel_visible = 'hidden';
 
-  constructor(private route: Router) { 
+   puntuazioa: number = 0;
+
+  constructor(private route: Router,private router: Router,private activatedRoute: ActivatedRoute) { 
     this.correctOrder = [...this.images];
     this.shuffledImages = this.shuffleArray(this.images);
     this.visibleImages = Array(this.images.length).fill(true); // Inicialmente, todas las imágenes son visibles
@@ -93,9 +96,14 @@ export class OrdenatuArgazkiakPage implements OnInit {
     this.panel_visible = 'visible';
   }
   
-  hurrengoJokoa(ruta:any){
+  hurrengoJokoa(){
     this.audio_active.pause()
-    this.route.navigate([ruta]);
+    const newPuntuazioa = Number(this.puntuazioa) + 5;
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: newPuntuazioa + 15 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/puzzlea', newParams]);
+
+      console.log('pruebalotu',newParams);
   }
 
   playAudio(audio : any){
@@ -121,6 +129,9 @@ export class OrdenatuArgazkiakPage implements OnInit {
   ngOnInit() {
     this.audioakKargatu()
     this.playAudio(this.audio_1)
+    this.activatedRoute.params.subscribe((newParams) => {
+      console.log('Paramstest: ', newParams);
+    });
   }
 
 }

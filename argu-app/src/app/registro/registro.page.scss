@@ -1,0 +1,29 @@
+.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  
+  .datuak{ 
+    margin-top: 1em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.5em;
+  }
+
+  
+  .reg button{
+    color: #000000;
+    background-color: #d8e246;
+    border: 2px solid black;
+    border-radius: 0.5em;
+    padding: 1em;
+  }
+
+  .pasahitzak{
+    color: red;
+  }

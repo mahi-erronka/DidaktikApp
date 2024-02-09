@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-test-galderak',
   templateUrl: 'test-galderak.page.html',
@@ -9,6 +10,7 @@ export class TestGalderakPage {
   juegoTerminado: boolean = false;
   juegoIniciado: boolean = false;
   mostrarRespuestas: boolean = false;
+  puntuazioa: number = 0;
 
   //Audio
   private Audio3 = new Audio('assets/audio/1Gunea/Audio3.mp3');
@@ -53,7 +55,7 @@ export class TestGalderakPage {
   
   interval: any;
   
-  constructor(private route: Router) { this.playAudio(this.Audio3);}
+  constructor(private router: Router,private activatedRoute: ActivatedRoute) { this.playAudio(this.Audio3);}
 
   iniciarJuego() {
     this.juegoTerminado = false;
@@ -61,6 +63,8 @@ export class TestGalderakPage {
     this.shuffleArray(this.preguntas);
     this.siguientePregunta();
   }
+ 
+
 
   repetirIntento(): void {
     clearInterval(this.interval); // Limpiar el intervalo actual
@@ -73,10 +77,14 @@ export class TestGalderakPage {
     this.siguientePregunta();
   }
 
-  hurrengoJokoa(ruta: any) {
+  hurrengoJokoa() {
     this.Audio3.pause();
   
-    this.route.navigate([ruta]);
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: this.puntuazioa + 5 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/kantua', newParams]);
+
+      console.log('pruebatest',newParams);
   }
 
     //Mapa erakusteko botoia aktibatzeko
@@ -128,9 +136,10 @@ export class TestGalderakPage {
     }
   }
 
-  ngOnInit() {
-    // El contador de tiempo se inicia cuando se inicia el componente
-  }
+  ngOnInit() { this.activatedRoute.params.subscribe((newParams) => {
+    console.log('Paramstest: ', newParams);
+  });}
+
 
   respuestaColor(respuesta: string) {
     if (this.preguntaActual.estado === 'incorrecta' && respuesta === this.preguntaActual.respuestaSeleccionada) {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-hizki-sopa',
   templateUrl: './hizki-sopa.page.html',
@@ -23,12 +23,13 @@ export class HizkiSopaPage implements OnInit {
   audioWrong: any;
   audioHelp: any;
 
+  puntuazioa: number = 0;
   //MAPA
   mapa_visible = 'hidden';
   mapa_botoia = 'false';
   panel_visible = 'hidden';
 
-  constructor(private renderer: Renderer2, private route: Router) {}
+  constructor(private renderer: Renderer2, private router: Router,private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.generarSopaDeLetras();
@@ -45,6 +46,11 @@ export class HizkiSopaPage implements OnInit {
     this.audioHelp = new Audio();
     this.audioHelp.src = 'assets/audio/0Gunea/help.mp3';
     this.audioHelp.load();
+
+    this.activatedRoute.params.subscribe((params) => {
+      console.log('Params: ', params);
+    });
+
   }
 
   //Mapa erakusteko botoia aktibatzeko
@@ -53,9 +59,13 @@ export class HizkiSopaPage implements OnInit {
     this.panel_visible = 'visible';
   }
 
-  hurrengoJokoa(ruta: any) {
-    //this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
-    this.route.navigate([ruta]);
+  hurrengoJokoa() {
+    const newPuntuazioa = Number(this.puntuazioa) + 5;
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: newPuntuazioa + 10 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/test-galderak', newParams]);
+
+      console.log('prueba',newParams);
   }
 
   audioGelditu() {

@@ -1,0 +1,26 @@
+
+<ion-content [fullscreen]="true">
+  <div class="registro">
+    <h1>Erregistroa</h1>
+    <div class="datuak">
+        <ion-input [(ngModel)]="username" placeholder="Erabiltzailea"></ion-input>
+    </div>
+    <div class="datuak">
+      <ion-input [(ngModel)]="emaila" placeholder="Emaila"></ion-input>
+    </div>
+    <div class="datuak">
+        <ion-input [(ngModel)]="password1" type="password"  placeholder="Pasahitza"></ion-input>
+    </div>
+    <div class="datuak">
+      <ion-input [(ngModel)]="password2" type="password"  placeholder="Pasahitza errepikatu"></ion-input>
+    </div> 
+    <div class="pasahitzak" [ngStyle]="{'visibility': pasahitza_error}">
+      <p>{{errorea}}</p>
+    </div>
+    <div class="reg">
+      <button class="botoia" (click)="erregistratu()">Erregistratu</button>
+    </div>
+  </div>
+
+  
+</ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusBar } from '@capacitor/status-bar';
+import { ActivatedRoute } from '@angular/router';
 
 
 interface PuzzlePiece {
@@ -27,7 +28,7 @@ export class PuzzleaPage implements OnInit {
 
   rows = 3;
   cols = 4;
-
+  puntuazioa: number = 0;
   pieceWidthPercentage = 50/this.cols;
   pieceHeightPercentage = 50/this.rows;
 
@@ -79,7 +80,7 @@ export class PuzzleaPage implements OnInit {
   audio_2 : any;
   audio_active : any;
 
-  constructor(private route: Router) { 
+  constructor(private route: Router,private router: Router,private activatedRoute: ActivatedRoute) { 
     
   }
 
@@ -231,15 +232,23 @@ export class PuzzleaPage implements OnInit {
 
     this.audioakKargatu()
     this.playAudio(this.audio_1)
+    this.activatedRoute.params.subscribe((newParams) => {
+      console.log('Paramstest: ', newParams);
+    });
   }
   mapaErakutsi(){
     this.mapa_visible = 'visible';
     this.panel_visible = 'visible';
   }
 
-  hurrengoJokoa(ruta:any){
+  hurrengoJokoa(){
     this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
-    this.route.navigate([ruta]);
+    const newPuntuazioa = Number(this.puntuazioa) + 40;
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: newPuntuazioa };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/amaiera', newParams]);
+
+      console.log('pruebapuzzle',newParams);
   }
 
 }

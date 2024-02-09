@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-sentimenduak',
   templateUrl: './sentimenduak.page.html',
@@ -16,6 +16,8 @@ export class SentimenduakPage implements OnInit {
   audio_azalpena : any
   audio_active : any;
 
+  puntuazioa: number = 0;
+
   //MAPA
   mapa_visible = 'hidden';
   mapa_botoia = 'false';
@@ -24,7 +26,7 @@ export class SentimenduakPage implements OnInit {
   //TESTUA
   dialogo : any;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   sentimenduaAukeratu(){
     var index = Math.floor(Math.random() * this.sentimenduak.length);
@@ -78,20 +80,25 @@ export class SentimenduakPage implements OnInit {
     this.panel_visible = 'visible';
   }
 
-  hurrengoJokoa(ruta:any){
+  hurrengoJokoa(){
     this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
-    this.route.navigate([ruta]);
+    this.audio_active.pause()//Audio reproduzitzen ari bada gelditu
+    const newParams = { ...this.activatedRoute.snapshot.params, puntuazioa: this.puntuazioa + 5 };
+    // Luego, navega a la siguiente página con los nuevos parámetros
+    this.router.navigate(['/hitzak-lotu', newParams]);
+
+      console.log('pruebalotu',newParams);
   }
-
-  
-
-
 
   ngOnInit() {
     this.ausazko_sentimendua = this.sentimenduaAukeratu();
 
     this.audioakKargatu()
     this.playAudio(this.audio_antzerki_1)
+
+    this.activatedRoute.params.subscribe((newParams) => {
+      console.log('Paramstest: ', newParams);
+    });
   }
 
 }
